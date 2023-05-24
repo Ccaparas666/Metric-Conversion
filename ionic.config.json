@@ -1,0 +1,7 @@
+{
+  "name": "Metric-Conversion",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
