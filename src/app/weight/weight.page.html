@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Weight</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header class="ion-text-center">
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="'/home'" routerDirection="root">Home</ion-button>
+      <ion-button [routerLink]="'/length'" routerDirection="root">Length</ion-button>
+      <ion-button [routerLink]="'/temperature'" routerDirection="root">Temperature</ion-button>
+      <ion-button [routerLink]="'/area'" routerDirection="root">Area</ion-button>
+      <ion-button [routerLink]="'/volume'" routerDirection="root">Volume</ion-button>
+      <ion-button [routerLink]="'/weight'" routerDirection="root">Weight</ion-button>
+    </ion-buttons>
+  </ion-header>
+
+  <ion-grid>
+    <div class="conversion-container">
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Enter the value</ion-label>
+            <ion-input [(ngModel)]="inputValue" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Select input unit</ion-label>
+            <ion-select [(ngModel)]="selectedInputUnit">
+              <ion-select-option value="kilogram">Kilogram (kg)</ion-select-option>
+              <ion-select-option value="gram">Gram (g)</ion-select-option>
+              <ion-select-option value="milligram">Milligram (mg)</ion-select-option>
+              <ion-select-option value="microgram">Microgram (μg)</ion-select-option>
+              <ion-select-option value="pound">Pound (lb)</ion-select-option>
+              <ion-select-option value="ounce">Ounce (oz)</ion-select-option>
+              <ion-select-option value="ton">Ton (t)</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Select output unit</ion-label>
+            <ion-select [(ngModel)]="selectedOutputUnit">
+              <ion-select-option value="kilogram">Kilogram (kg)</ion-select-option>
+              <ion-select-option value="gram">Gram (g)</ion-select-option>
+              <ion-select-option value="milligram">Milligram (mg)</ion-select-option>
+              <ion-select-option value="microgram">Microgram (μg)</ion-select-option>
+              <ion-select-option value="pound">Pound (lb)</ion-select-option>
+              <ion-select-option value="ounce">Ounce (oz)</ion-select-option>
+              <ion-select-option value="ton">Ton (t)</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button expand="full" (click)="convert()">Convert</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+      <ion-row>
+        <ion-col size="12">
+          <div class="result" *ngIf="convertedValue !== null">
+            <p>{{ inputValue }} {{ selectedInputUnit }} is equal to {{ convertedValue }} {{ selectedOutputUnit }}</p>
+          </div>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

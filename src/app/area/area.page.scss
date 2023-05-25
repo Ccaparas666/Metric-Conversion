@@ -1,0 +1,19 @@
+ion-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .conversion-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+  }

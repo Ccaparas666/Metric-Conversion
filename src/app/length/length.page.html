@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Length Conversion
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-header class="ion-text-center">
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="'/home'" routerDirection="root">Home</ion-button>
+      <ion-button [routerLink]="'/length'" routerDirection="root">Length</ion-button>
+      <ion-button [routerLink]="'/temperature'" routerDirection="root">Temperature</ion-button>
+      <ion-button [routerLink]="'/area'" routerDirection="root">Area</ion-button>
+      <ion-button [routerLink]="'/volume'" routerDirection="root">Volume</ion-button>
+      <ion-button [routerLink]="'/weight'" routerDirection="root">Weight</ion-button>
+    </ion-buttons>
+  </ion-header>
+  <div class="conversion-container">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Enter the value</ion-label>
+        <ion-input [(ngModel)]="inputValue" type="number"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Select input unit</ion-label>
+        <ion-select [(ngModel)]="inputUnit">
+          <ion-select-option value="meter">Meter</ion-select-option>
+          <ion-select-option value="kilometer">Kilometer</ion-select-option>
+          <ion-select-option value="centimeter">Centimeter</ion-select-option>
+          <ion-select-option value="millimeter">Millimeter</ion-select-option>
+          <ion-select-option value="micrometer">Micrometer</ion-select-option>
+          <ion-select-option value="nanometer">Nanometer</ion-select-option>
+          <ion-select-option value="mile">Mile</ion-select-option>
+          <ion-select-option value="yard">Yard</ion-select-option>
+          <ion-select-option value="foot">Foot</ion-select-option>
+          <ion-select-option value="inch">Inch</ion-select-option>
+          <ion-select-option value="light-year">Light Year</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Select output unit</ion-label>
+        <ion-select [(ngModel)]="outputUnit">
+          <ion-select-option value="meter">Meter</ion-select-option>
+          <ion-select-option value="kilometer">Kilometer</ion-select-option>
+          <ion-select-option value="centimeter">Centimeter</ion-select-option>
+          <ion-select-option value="millimeter">Millimeter</ion-select-option>
+          <ion-select-option value="micrometer">Micrometer</ion-select-option>
+          <ion-select-option value="nanometer">Nanometer</ion-select-option>
+          <ion-select-option value="mile">Mile</ion-select-option>
+          <ion-select-option value="yard">Yard</ion-select-option>
+          <ion-select-option value="foot">Foot</ion-select-option>
+          <ion-select-option value="inch">Inch</ion-select-option>
+          <ion-select-option value="light-year">Light Year</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="full" (click)="convert()">Convert</ion-button>
+
+    <div class="result" *ngIf="convertedValue !== null">
+      <p>{{ inputValue }} {{ inputUnit }} is equal to {{ convertedValue }} {{ outputUnit }}</p>
+    </div>
+
+  </div>
+</ion-content>

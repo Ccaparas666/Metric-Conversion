@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Volume</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-header class="ion-text-center">
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="'/home'" routerDirection="root">Home</ion-button>
+      <ion-button [routerLink]="'/length'" routerDirection="root">Length</ion-button>
+      <ion-button [routerLink]="'/temperature'" routerDirection="root">Temperature</ion-button>
+      <ion-button [routerLink]="'/area'" routerDirection="root">Area</ion-button>
+      <ion-button [routerLink]="'/volume'" routerDirection="root">Volume</ion-button>
+      <ion-button [routerLink]="'/weight'" routerDirection="root">Weight</ion-button>
+    </ion-buttons>
+  </ion-header>
+  <div class="conversion-container">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Enter the value</ion-label>
+        <ion-input [(ngModel)]="inputValue" type="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Select input unit</ion-label>
+        <ion-select [(ngModel)]="selectedInputUnit">
+          <ion-select-option value="cubic-meter">Cubic Meter (m³)</ion-select-option>
+          <ion-select-option value="cubic-centimeter">Cubic Centimeter (cm³)</ion-select-option>
+          <ion-select-option value="cubic-foot">Cubic Foot (ft³)</ion-select-option>
+          <ion-select-option value="cubic-inch">Cubic Inch (in³)</ion-select-option>
+          <ion-select-option value="gallon">Gallon (gal)</ion-select-option>
+          <ion-select-option value="liter">Liter (L)</ion-select-option>
+          <ion-select-option value="milliliter">Milliliter (mL)</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Select output unit</ion-label>
+        <ion-select [(ngModel)]="selectedOutputUnit">
+          <ion-select-option value="cubic-meter">Cubic Meter (m³)</ion-select-option>
+          <ion-select-option value="cubic-centimeter">Cubic Centimeter (cm³)</ion-select-option>
+          <ion-select-option value="cubic-foot">Cubic Foot (ft³)</ion-select-option>
+          <ion-select-option value="cubic-inch">Cubic Inch (in³)</ion-select-option>
+          <ion-select-option value="gallon">Gallon (gal)</ion-select-option>
+          <ion-select-option value="liter">Liter (L)</ion-select-option>
+          <ion-select-option value="milliliter">Milliliter (mL)</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="full" (click)="convert()">Convert</ion-button>
+
+    <div class="result" *ngIf="convertedValue !== null">
+      <p>{{ inputValue }} {{ selectedInputUnit }} is equal to {{ convertedValue }} {{ selectedOutputUnit }}</p>
+    </div>
+
+  </div>
+</ion-content>

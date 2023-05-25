@@ -1,20 +1,35 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Metric Converter
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content class="ion-padding">
+  <div class="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button expand="full" (click)="navigateTo('length')">Length</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button expand="full" (click)="navigateTo('temperature')">Temperature</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button expand="full" (click)="navigateTo('area')">Area</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button expand="full" (click)="navigateTo('volume')">Volume</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button expand="full" (click)="navigateTo('weight')">Weight</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>

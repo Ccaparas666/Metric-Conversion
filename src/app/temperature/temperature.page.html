@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Temperature</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-header class="ion-text-center">
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="'/home'" routerDirection="root">Home</ion-button>
+      <ion-button [routerLink]="'/length'" routerDirection="root">Length</ion-button>
+      <ion-button [routerLink]="'/temperature'" routerDirection="root">Temperature</ion-button>
+      <ion-button [routerLink]="'/area'" routerDirection="root">Area</ion-button>
+      <ion-button [routerLink]="'/volume'" routerDirection="root">Volume</ion-button>
+      <ion-button [routerLink]="'/weight'" routerDirection="root">Weight</ion-button>
+    </ion-buttons>
+  </ion-header>
+
+  <div class="conversion-container">
+    <ion-item>
+      <ion-label position="stacked">Enter the value</ion-label>
+      <ion-input [(ngModel)]="inputValue" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Select input unit</ion-label>
+      <ion-select [(ngModel)]="selectedInputUnit">
+        <ion-select-option value="celsius">Celsius (°C)</ion-select-option>
+        <ion-select-option value="fahrenheit">Fahrenheit (°F)</ion-select-option>
+        <ion-select-option value="kelvin">Kelvin (K)</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Select output unit</ion-label>
+      <ion-select [(ngModel)]="selectedOutputUnit">
+        <ion-select-option value="celsius">Celsius (°C)</ion-select-option>
+        <ion-select-option value="fahrenheit">Fahrenheit (°F)</ion-select-option>
+        <ion-select-option value="kelvin">Kelvin (K)</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="full" color="primary" (click)="convert()">Convert</ion-button>
+  </div>
+
+  <div class="result" *ngIf="convertedValue !== null">
+    <p>{{ inputValue }} {{ selectedInputUnit }} is equal to {{ convertedValue }} {{ selectedOutputUnit }}</p>
+  </div>
+</ion-content>
