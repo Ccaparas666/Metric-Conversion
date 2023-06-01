@@ -64,10 +64,11 @@
     </ion-list>
 
     <ion-button expand="full" (click)="convert()">Convert</ion-button>
-
+    <ion-button expand="full" (click)="clearTextarea()">Clear</ion-button>
     <div class="result" *ngIf="convertedValue !== null">
-      <p>{{ inputValue }} {{ inputUnit }} is equal to {{ convertedValue }} {{ outputUnit }}</p>
+      
+      <ion-textarea>{{ inputValue }} {{ inputUnit }} is equal to {{ convertedValue }} {{ outputUnit }}</ion-textarea>
     </div>
-
+    
   </div>
 </ion-content>

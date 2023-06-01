@@ -6,11 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./length.page.scss'],
 })
 export class LengthPage {
-  inputValue!: number;
+  
   inputUnit!: string;
   outputUnit!: string;
   convertedValue: number | null = null;
   selectedUnit!: string;
+  inputValue!: number;
+
+
+
+  clearTextarea() {
+    this.inputValue = Number.NaN;
+    this.convertedValue = null;
+    this.inputUnit = '';
+    this.outputUnit = '';
+    
+  }
+  
   convert() {
     if (
       this.inputValue !== undefined &&
