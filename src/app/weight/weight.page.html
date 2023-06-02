@@ -22,7 +22,7 @@
         <ion-col size="12">
           <ion-item>
             <ion-label position="stacked">Enter the value</ion-label>
-            <ion-input [(ngModel)]="inputValue" type="number"></ion-input>
+            <ion-input [disabled]="isTextAreaDisabled" [(ngModel)]="inputValue" type="number" id="input1"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -30,7 +30,7 @@
         <ion-col size="12">
           <ion-item>
             <ion-label position="stacked">Select input unit</ion-label>
-            <ion-select [(ngModel)]="selectedInputUnit">
+            <ion-select [(ngModel)]="selectedInputUnit" id="inputU">
               <ion-select-option value="kilogram">Kilogram (kg)</ion-select-option>
               <ion-select-option value="gram">Gram (g)</ion-select-option>
               <ion-select-option value="milligram">Milligram (mg)</ion-select-option>
@@ -46,7 +46,7 @@
         <ion-col size="12">
           <ion-item>
             <ion-label position="stacked">Select output unit</ion-label>
-            <ion-select [(ngModel)]="selectedOutputUnit">
+            <ion-select [(ngModel)]="selectedOutputUnit" id="inputO">
               <ion-select-option value="kilogram">Kilogram (kg)</ion-select-option>
               <ion-select-option value="gram">Gram (g)</ion-select-option>
               <ion-select-option value="milligram">Milligram (mg)</ion-select-option>
@@ -60,7 +60,8 @@
       </ion-row>
       <ion-row>
         <ion-col size="12">
-          <ion-button expand="full" (click)="convert()">Convert</ion-button>
+          <ion-button expand="full" (click)="convert1()">Convert</ion-button>
+          <ion-button expand="full" (click)="clearTextarea()">Clear</ion-button>
         </ion-col>
       </ion-row>
     </div>

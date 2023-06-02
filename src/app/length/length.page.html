@@ -21,14 +21,14 @@
     <ion-list>
       <ion-item>
         <ion-label position="floating">Enter the value</ion-label>
-        <ion-input [(ngModel)]="inputValue" type="number"></ion-input>
+        <ion-input [disabled]="isTextAreaDisabled" [(ngModel)]="inputValue" id="input1" type="number"></ion-input>
       </ion-item>
     </ion-list>
 
     <ion-list>
       <ion-item>
         <ion-label>Select input unit</ion-label>
-        <ion-select [(ngModel)]="inputUnit">
+        <ion-select [(ngModel)]="inputUnit" id="inputU">
           <ion-select-option value="meter">Meter</ion-select-option>
           <ion-select-option value="kilometer">Kilometer</ion-select-option>
           <ion-select-option value="centimeter">Centimeter</ion-select-option>
@@ -47,7 +47,7 @@
     <ion-list>
       <ion-item>
         <ion-label>Select output unit</ion-label>
-        <ion-select [(ngModel)]="outputUnit">
+        <ion-select [(ngModel)]="outputUnit" id="inputO">
           <ion-select-option value="meter">Meter</ion-select-option>
           <ion-select-option value="kilometer">Kilometer</ion-select-option>
           <ion-select-option value="centimeter">Centimeter</ion-select-option>
@@ -63,7 +63,7 @@
       </ion-item>
     </ion-list>
 
-    <ion-button expand="full" (click)="convert()">Convert</ion-button>
+    <ion-button expand="full" (click)="convert1()">Convert</ion-button>
     <ion-button expand="full" (click)="clearTextarea()">Clear</ion-button>
     <div class="result" *ngIf="convertedValue !== null">
       

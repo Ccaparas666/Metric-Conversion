@@ -19,11 +19,11 @@
     <ion-list>
       <ion-item>
         <ion-label position="stacked">Enter the value</ion-label>
-        <ion-input [(ngModel)]="inputValue" type="number"></ion-input>
+        <ion-input [disabled]="isTextAreaDisabled" [(ngModel)]="inputValue" type="number" id="input1"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Select input unit</ion-label>
-        <ion-select [(ngModel)]="selectedInputUnit">
+        <ion-select [(ngModel)]="selectedInputUnit" id="inputU">
           <ion-select-option value="cubic-meter">Cubic Meter (m³)</ion-select-option>
           <ion-select-option value="cubic-centimeter">Cubic Centimeter (cm³)</ion-select-option>
           <ion-select-option value="cubic-foot">Cubic Foot (ft³)</ion-select-option>
@@ -35,7 +35,7 @@
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Select output unit</ion-label>
-        <ion-select [(ngModel)]="selectedOutputUnit">
+        <ion-select [(ngModel)]="selectedOutputUnit" id="inputO">
           <ion-select-option value="cubic-meter">Cubic Meter (m³)</ion-select-option>
           <ion-select-option value="cubic-centimeter">Cubic Centimeter (cm³)</ion-select-option>
           <ion-select-option value="cubic-foot">Cubic Foot (ft³)</ion-select-option>
@@ -47,7 +47,8 @@
       </ion-item>
     </ion-list>
 
-    <ion-button expand="full" (click)="convert()">Convert</ion-button>
+    <ion-button expand="full" (click)="convert1()">Convert</ion-button>
+    <ion-button expand="full" (click)="clearTextarea()">Clear</ion-button>
 
     <div class="result" *ngIf="convertedValue !== null">
       <p>{{ inputValue }} {{ selectedInputUnit }} is equal to {{ convertedValue }} {{ selectedOutputUnit }}</p>

@@ -20,12 +20,12 @@
 
     <ion-item>
       <ion-label position="stacked">Enter the value</ion-label>
-      <ion-input [(ngModel)]="inputValue" type="number"></ion-input>
+      <ion-input [disabled]="isTextAreaDisabled" [(ngModel)]="inputValue" type="number" id="input1"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Select input unit</ion-label>
-      <ion-select [(ngModel)]="selectedInputUnit">
+      <ion-select [(ngModel)]="selectedInputUnit" id="inputU">
         <ion-select-option value="square-meter">Square Meter</ion-select-option>
         <ion-select-option value="square-kilometer">Square Kilometer</ion-select-option>
         <ion-select-option value="square-centimeter">Square Centimeter</ion-select-option>
@@ -40,7 +40,7 @@
 
     <ion-item>
       <ion-label position="stacked">Select output unit</ion-label>
-      <ion-select [(ngModel)]="selectedOutputUnit">
+      <ion-select [(ngModel)]="selectedOutputUnit" id="inputO">
         <ion-select-option value="square-meter">Square Meter</ion-select-option>
         <ion-select-option value="square-kilometer">Square Kilometer</ion-select-option>
         <ion-select-option value="square-centimeter">Square Centimeter</ion-select-option>
@@ -53,7 +53,8 @@
       </ion-select>
     </ion-item>
 
-    <ion-button expand="full" color="primary" (click)="convert()">Convert</ion-button>
+    <ion-button expand="full" color="primary" (click)="convert1()">Convert</ion-button>
+    <ion-button expand="full" (click)="clearTextarea()">Clear</ion-button>
   </div>
 
   <div class="result" *ngIf="convertedValue !== null">

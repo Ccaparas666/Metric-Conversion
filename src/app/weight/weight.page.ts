@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-weight',
   templateUrl: './weight.page.html',
@@ -10,8 +10,39 @@ export class WeightPage {
   selectedInputUnit!: string;
   selectedOutputUnit!: string;
   convertedValue: number | null = null;
+  isTextAreaDisabled: boolean = false;
+  constructor(private AlertController: AlertController){}
+
+   clearTextarea() {
+    this.isTextAreaDisabled = false;
+    this.inputValue = Number.NaN;
+    this.convertedValue = null;
+    this.selectedInputUnit = '';
+    this.selectedOutputUnit = '';
+    
+  }
+
+  convert1(){
+    const input1 = document.getElementById('input1')as HTMLInputElement;
+    const inputU = document.getElementById('inputU')as HTMLInputElement;
+    const inputO = document.getElementById('inputO')as HTMLInputElement;
+    if(!input1.value || !inputU.value || !inputO.value ){
+      const alert = this.AlertController.create({message:'Please enter or choose conversion!!', 
+        buttons:['Okay']});
+        alert.then((alert)=> alert.present
+        ());
+        this.isTextAreaDisabled = false;
+        this.inputValue = Number.NaN;
+        this.convertedValue = null;
+        this.selectedInputUnit = '';
+        this.selectedOutputUnit = '';
+    }else{
+      this.convert();
+    }
+  }
 
   convert() {
+    this.isTextAreaDisabled = true;
     if (
       this.inputValue === undefined ||
       this.selectedInputUnit === undefined ||

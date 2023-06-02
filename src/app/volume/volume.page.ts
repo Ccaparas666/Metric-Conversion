@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-volume',
   templateUrl: './volume.page.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VolumePage implements OnInit {
 
-  constructor() { }
+  constructor(private AlertController: AlertController){}
 
   ngOnInit() {
   }
@@ -15,8 +15,37 @@ export class VolumePage implements OnInit {
   selectedInputUnit!: string;
   selectedOutputUnit!: string;
   convertedValue: number | null = null;
+  isTextAreaDisabled: boolean = false;
+
+  clearTextarea() {
+    this.isTextAreaDisabled = false;
+    this.inputValue = Number.NaN;
+    this.convertedValue = null;
+    this.selectedInputUnit = '';
+    this.selectedOutputUnit = '';
+    
+  }
+  convert1(){
+    const input1 = document.getElementById('input1')as HTMLInputElement;
+    const inputU = document.getElementById('inputU')as HTMLInputElement;
+    const inputO = document.getElementById('inputO')as HTMLInputElement;
+    if(!input1.value || !inputU.value || !inputO.value ){
+      const alert = this.AlertController.create({message:'Please enter or choose conversion!!', 
+        buttons:['Okay']});
+        alert.then((alert)=> alert.present
+        ());
+        this.isTextAreaDisabled = false;
+        this.inputValue = Number.NaN;
+        this.convertedValue = null;
+        this.selectedInputUnit = '';
+        this.selectedOutputUnit = '';
+    }else{
+      this.convert();
+    }
+  }
 
   convert() {
+    this.isTextAreaDisabled = true;
     if (
       this.inputValue === undefined ||
       this.selectedInputUnit === undefined ||
